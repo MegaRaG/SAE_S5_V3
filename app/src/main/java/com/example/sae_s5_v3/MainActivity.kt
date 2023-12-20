@@ -1,5 +1,6 @@
 package com.example.sae_s5_v3
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -28,6 +29,13 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.sae_s5_v3.ui.theme.SAE_S5_V3Theme
+import androidx.compose.material3.*
+import androidx.compose.runtime.*
+import androidx.compose.ui.platform.LocalContext
+import androidx.core.content.ContextCompat.startActivity
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +47,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingPreview()
+                    BottomAppBarExample()
                 }
             }
         }
@@ -48,25 +56,36 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun BottomAppBarExample() {
+    val context = LocalContext.current
+
     Scaffold(
         bottomBar = {
             BottomAppBar(
                 actions = {
-                    IconButton(onClick = { /* do something */ }) {
+                    IconButton(onClick = {
+                        // Start TypePages activity when the Accueil icon is clicked
+                        context.startActivity(Intent(context, TypePages::class.java))
+                    }) {
                         Icon(
                             painter = painterResource(id = R.drawable.icons8_accueil_24),
                             contentDescription = "Localized description",
                             modifier = Modifier.size(24.dp) // Set a fixed size
                         )
                     }
-                    IconButton(onClick = { /* do something */ }) {
+                    IconButton(onClick = {
+                        // Start TypePages activity when the Histogramme icon is clicked
+                        context.startActivity(Intent(context, TypePages::class.java))
+                    }) {
                         Icon(
                             painter = painterResource(id = R.drawable.icons8_histogramme_24),
                             contentDescription = "Localized description",
                             modifier = Modifier.size(24.dp) // Set a fixed size
                         )
                     }
-                    IconButton(onClick = { /* do something */ }) {
+                    IconButton(onClick = {
+                        // Start TypePages activity when the Parameters icon is clicked
+                        context.startActivity(Intent(context, TypePages::class.java))
+                    }) {
                         Icon(
                             painter = painterResource(id = R.drawable.icons8_parameters_66),
                             contentDescription = "Localized description",
@@ -92,8 +111,6 @@ fun BottomAppBarExample() {
         )
     }
 }
-
-
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {

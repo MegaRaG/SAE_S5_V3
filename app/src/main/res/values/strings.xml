@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SAE_S5_V3</string>
+    <string name="title_activity_type_pages">titre type page</string>
 </resources>
