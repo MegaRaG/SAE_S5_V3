@@ -37,7 +37,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 
-class MainActivity : ComponentActivity() {
+class MainActivity : ElementsGlobal() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -47,74 +47,19 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    BottomAppBarExample()
+                    BottomAppBar()
+                    PageContent()
                 }
             }
         }
     }
-}
 
-@Composable
-fun BottomAppBarExample() {
-    val context = LocalContext.current
-
-    Scaffold(
-        bottomBar = {
-            BottomAppBar(
-                actions = {
-                    IconButton(onClick = {
-                        // Start TypePages activity when the Accueil icon is clicked
-                        context.startActivity(Intent(context, TypePages::class.java))
-                    }) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.icons8_accueil_24),
-                            contentDescription = "Localized description",
-                            modifier = Modifier.size(24.dp) // Set a fixed size
-                        )
-                    }
-                    IconButton(onClick = {
-                        // Start TypePages activity when the Histogramme icon is clicked
-                        context.startActivity(Intent(context, TypePages::class.java))
-                    }) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.icons8_histogramme_24),
-                            contentDescription = "Localized description",
-                            modifier = Modifier.size(24.dp) // Set a fixed size
-                        )
-                    }
-                    IconButton(onClick = {
-                        // Start TypePages activity when the Parameters icon is clicked
-                        context.startActivity(Intent(context, TypePages::class.java))
-                    }) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.icons8_parameters_66),
-                            contentDescription = "Localized description",
-                            modifier = Modifier.size(24.dp) // Set a fixed size
-                        )
-                    }
-                },
-                floatingActionButton = {
-                    FloatingActionButton(
-                        onClick = { /* do something */ },
-                        containerColor = BottomAppBarDefaults.bottomAppBarFabColor,
-                        elevation = FloatingActionButtonDefaults.bottomAppBarFabElevation()
-                    ) {
-                        Icon(Icons.Filled.Add, "Localized description")
-                    }
-                }
-            )
-        },
-    ) { innerPadding ->
+    @Composable
+    override fun PageContent() {
+        // Content specific to MainActivity
         Text(
-            modifier = Modifier.padding(innerPadding),
-            text = "Example of a scaffold with a bottom app bar."
+            text = "Page 1",
+            modifier = Modifier.padding(16.dp)
         )
-    }
-}
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    SAE_S5_V3Theme {
-        BottomAppBarExample()
     }
 }
