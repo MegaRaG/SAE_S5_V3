@@ -19,8 +19,11 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.ui.draw.scale
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.stringResource
 
 abstract class ElementsGlobal : ComponentActivity() {
 
@@ -46,31 +49,40 @@ abstract class ElementsGlobal : ComponentActivity() {
                                 // Start MainActivity when the Accueil icon is clicked
                                 context.startActivity(Intent(context, MainActivity::class.java))
                             }) {
-                                Icon(
-                                    painter = painterResource(id = R.drawable.icons8_accueil_24),
-                                    contentDescription = "Localized description",
-                                    modifier = Modifier.size(24.dp)
-                                )
+                                Row {
+                                    Icon(
+                                        painter = painterResource(id = R.drawable.icons8_accueil_24),
+                                        contentDescription = "Localized description",
+                                        modifier = Modifier.size(24.dp)
+                                    )
+                                    Text(text = stringResource(R.string.home_name), color = Color.Black)
+                                }
                             }
                             IconButton(onClick = {
                                 // Start TypePages activity when the Histogramme icon is clicked
                                 context.startActivity(Intent(context, TypePages::class.java))
                             }) {
-                                Icon(
-                                    painter = painterResource(id = R.drawable.icons8_histogramme_24),
-                                    contentDescription = "Localized description",
-                                    modifier = Modifier.size(24.dp)
-                                )
+                                Row {
+                                    Icon(
+                                        painter = painterResource(id = R.drawable.icons8_histogramme_24),
+                                        contentDescription = "Localized description",
+                                        modifier = Modifier.size(24.dp)
+                                    )
+                                    Text(text = stringResource(R.string.statistics_name), color = Color.Black)
+                                }
                             }
                             IconButton(onClick = {
                                 // Start TypePages activity when the Parameters icon is clicked
                                 context.startActivity(Intent(context, TypePages::class.java))
                             }) {
-                                Icon(
-                                    painter = painterResource(id = R.drawable.icons8_parameters_66),
-                                    contentDescription = "Localized description",
-                                    modifier = Modifier.size(24.dp)
-                                )
+                                Row {
+                                    Icon(
+                                        painter = painterResource(id = R.drawable.icons8_parameters_66),
+                                        contentDescription = "Localized description",
+                                        modifier = Modifier.size(24.dp)
+                                    )
+                                    Text(text = stringResource(R.string.settings_name), color = Color.Black)
+                                }
                             }
                         }
                     }
@@ -90,7 +102,6 @@ abstract class ElementsGlobal : ComponentActivity() {
                         .scale(1f, scaleY = 2.2f) // Adjust scale factor as needed
                 )
             }
-
         }
     }
 }

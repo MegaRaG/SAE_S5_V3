@@ -1,4 +1,7 @@
 <resources>
     <string name="app_name">SAE_S5_V3</string>
+    <string name="home_name">Home</string>
+    <string name="statistics_name">Statistics</string>
+    <string name="settings_name">Settings</string>
     <string name="title_activity_type_pages">titre type page</string>
 </resources>
